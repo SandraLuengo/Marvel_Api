@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './components/SearchBar/SearchBar';
+import AppService from './AppService';
 
 class App extends Component {
+  constructor(props){
+    super();
+    this.state={
+      characterInfo:null
+    }
+    this.appService = new AppService();
+  }
+
+  //Se te ocurre como ponerlo para cuando borras todo?? 
+  onChangeHandler = e => {
+    let finding=e.target.value
+    finding ? this.appService.getCharacterData(finding)
+    .then(characterInfo=> this.setState({...this.state,characterInfo}))
+    .catch(err=> console.log(err))
+    : this.setState({...this.state, characterInfo:null})
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <SearchBar changeFuncion={this.onChangeHandler}/>
+        {this.state.characterInfo&&this.state.characterInfo.map((item,i)=><div key={i}>{item.name}</div>)}
       </div>
-    );
+    )
   }
 }
 

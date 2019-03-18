@@ -1,0 +1,25 @@
+.searchBarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+
+    input {
+        height: 2rem;
+        width: 20%;
+        padding: 0 10px;
+        border-radius: 4px 0 0 4px;
+        border: solid #cdcdcd 1px;
+
+        &:focus {
+            outline:0px;
+        }
+    }
+    img {
+        width: 2rem;
+        padding: 0.5rem;
+        background-color: palevioletred;
+        border-radius: 0 4px 4px 0; 
+    }
+
+}
