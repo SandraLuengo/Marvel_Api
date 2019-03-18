@@ -1,10 +1,10 @@
 import React from 'react';
 import './SearchBar.scss';
 
-const SearchBar = props =>{
+const SearchBar = ({changeFuncion}) =>{
     return(
         <div className='searchBarContainer'>
-            <input type='text' name='search' onChange={e=>props.changeFuncion(e)}></input>
+            <input type='text' name='search' onChange={e=>changeFuncion(e)}></input>
             <img src='./image/search.svg' alt='search-icon'/>
         </div>
     );

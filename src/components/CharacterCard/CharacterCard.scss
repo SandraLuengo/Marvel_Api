@@ -1,0 +1,28 @@
+$break-small: 768px;
+
+.characterContainer {
+    margin-top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.characterChild {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-width: 100%;
+    }
+
+    @media screen and (min-width: $break-small) {
+        width: 30%;
+    }
+
+}
+
