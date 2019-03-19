@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props){
     super();
     this.state={
-      characterInfo:false
+      characterInfo:false,
+      err:false
     }
     this.appService = new AppService();
     
@@ -20,19 +21,18 @@ class App extends Component {
 
     finding.length>1?(
       this.appService.getCharacterData(finding)
-      .then(characterInfo=>{ 
-        this.setState({...this.state,characterInfo})
-      })
-      .catch(err=> console.log(err))
+      .then(characterInfo=> this.setState({...this.state,characterInfo}))
+      .catch(err=> this.setState({...this.state,err}))
     ): finding.length===0&&this.setState({...this.state,characterInfo:false});
     
   }
   render() {
-    const {characterInfo} = this.state;
+    const {characterInfo,err} = this.state;
     return (
       <div className="App">
         <SearchBar changeFuncion={this.onChangeHandler}/>
         {characterInfo&&<CharacterCard characterArray={characterInfo}/>}
+        {err&&<div>{err}</div>}
       </div>
     )
   }
