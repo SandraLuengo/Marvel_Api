@@ -1,4 +1,4 @@
-$break-small: 768px;
+@import '../../variables';
 
 .searchBarContainer {
     display: flex;
@@ -18,14 +18,18 @@ $break-small: 768px;
         }
 
         @media screen and (min-width: $break-small) {
-            width: 20%;
+            width: 60%;
+        }
+
+        @media screen and (min-width: $break-medium) {
+            width: 30%;
         }
        
     }
     img {
         width: 2rem;
         padding: 0.5rem;
-        background-color: palevioletred;
+        background-color: $search-icon-color;
         border-radius: 0 4px 4px 0; 
         
     }

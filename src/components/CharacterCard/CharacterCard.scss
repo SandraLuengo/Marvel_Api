@@ -1,27 +1,51 @@
-$break-small: 768px;
+@import '../../variables';
+
 
 .characterContainer {
     margin-top: 5rem;
-    width: 100%;
+    flex-basis: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     flex-wrap: wrap;
+    
 }
 
 .characterChild {
-    width: 100%;
+    flex-basis: 95%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    border-radius: 5px;
+    background: $character-background;
+    box-shadow: $character-shadow;
+    margin: 0 1rem 2rem 1rem;
+    transition: all .5s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
 
     img {
         max-width: 100%;
+        border-radius: 5px 5px 0 0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    div {
+        padding: 4%;
+        text-align: center;
     }
 
     @media screen and (min-width: $break-small) {
-        width: 30%;
+        flex-basis: 44%;
+    }
+
+    @media screen and (min-width: $break-medium) {
+        flex-basis: 30%;
     }
 
 }

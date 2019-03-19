@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.scss';
 
-const SearchBar = ({changeFuncion}) =>{
+const SearchBar = ({changeFuncion}) => {
     return(
         <div className='searchBarContainer'>
             <input type='text' name='search' onChange={e=>changeFuncion(e)}></input>

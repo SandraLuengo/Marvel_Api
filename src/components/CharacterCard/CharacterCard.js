@@ -4,12 +4,12 @@ import './CharacterCard.scss';
 const CharacterCard = ({characterArray}) => {
     return(
         <div className='characterContainer'>
-            {characterArray.map((item,i)=> {
+            {characterArray.map((currentCharacter,index)=> {
                 return(
-                    <div key={i} className='characterChild'>
-                        <img src={`${item.thumbnail.path}/landscape_incredible.${item.thumbnail.extension}`} alt={`${item.name}`}/>
-                        <div>{item.name}</div>
-                        {item.description&&<div>{item.description}</div>}
+                    <div key={index} className='characterChild'>
+                        <img src={`${currentCharacter.thumbnail.path}/landscape_incredible.${currentCharacter.thumbnail.extension}`} alt={`${currentCharacter.name}`}/>
+                        <h1>{currentCharacter.name}</h1>
+                        {currentCharacter.description&&<div>{currentCharacter.description}</div>}
                     </div>
                 )
             })}
