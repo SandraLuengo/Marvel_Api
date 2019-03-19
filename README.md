@@ -1,4 +1,4 @@
-##MARVEL API
+## `MARVEL API`
 
 ### `npm start`
 
